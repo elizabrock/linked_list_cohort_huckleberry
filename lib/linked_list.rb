@@ -6,11 +6,9 @@ class LinkedList
     if nth_item == 0
       @first_item.payload
     else
-      count = 0
       current_node = @first_item
-      while count < nth_item
+      nth_item.times do
         current_node = current_node.next_item
-        count = count + 1
       end
       current_node.payload
     end
