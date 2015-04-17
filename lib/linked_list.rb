@@ -56,4 +56,26 @@ class LinkedList
   #   end
   #   size
   # end
+
+  def to_s
+    str = "| "
+    # Inefficient (O(n^2))
+    # size.times do |i|
+    #   str << get(i)
+    #   if i == (size - 1)
+    #     str << " "
+    #   else
+    #     str << ", "
+    #   end
+    # end
+    current_item = @first_item
+    until current_item.nil?
+      str << current_item.payload
+      punctuation = current_item.last? ? " " : ", "
+      str << punctuation
+      current_item = current_item.next_item
+    end
+    str << "|"
+    str
+  end
 end
