@@ -21,6 +21,12 @@ class LinkedList
     end
   end
 
+  def last
+    unless @last_item.nil?
+      @last_item.payload
+    end
+  end
+
   def push(payload)
     new_item = LinkedListItem.new(payload)
     if @first_item.nil?
