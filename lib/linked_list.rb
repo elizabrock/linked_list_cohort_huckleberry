@@ -3,11 +3,13 @@ require_relative 'linked_list_item'
 class LinkedList
 
   def get(index)
+    raise IndexError if index < 0
     if index == 0
       @first_item.payload
     else
       current_node = @first_item
       index.times do
+        raise IndexError if current_node.nil? or current_node.last?
         current_node = current_node.next_item
       end
       current_node.payload
@@ -19,7 +21,6 @@ class LinkedList
     if @first_item.nil?
       @first_item = new_item
     else
-
       # Eliza's "Naive" Implementation:
       # last_item = @first_item
       # until last_item.last? # i.e. last_item.next_item.nil?

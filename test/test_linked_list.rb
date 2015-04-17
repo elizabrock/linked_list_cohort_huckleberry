@@ -56,6 +56,24 @@ class LinkedListTest < MiniTest::Unit::TestCase
     end
   end
 
+  def test_06d_get_that_doesnt_exist
+    ll = LinkedList.new
+    ll.push("bar")
+    assert_raises IndexError do
+      ll.get(1)
+    end
+  end
+
+  def test_06e_get_that_doesnt_exist_on_longer_list
+    ll = LinkedList.new
+    ll.push("bar")
+    ll.push("foo")
+    ll.push("baz")
+    assert_raises IndexError do
+      ll.get(6)
+    end
+  end
+
   def test_07a_new_list_size_is_0
     assert_equal(0, LinkedList.new.size)
   end
