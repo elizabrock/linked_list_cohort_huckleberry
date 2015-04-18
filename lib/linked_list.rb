@@ -3,7 +3,7 @@ require_relative 'linked_list_item'
 class LinkedList
   attr_reader :size
 
-  def initialize
+  def initialize(*args)
     @size = 0
   end
 
