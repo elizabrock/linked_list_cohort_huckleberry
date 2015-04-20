@@ -30,25 +30,22 @@ class LinkedList
   alias [] get
 
   def []=(index, payload)
-    if index > 0
-      previous_item = get_item(index - 1) # Will explode for index 0
-      current_item = previous_item.next_item
-    else
+    if index == 0
       current_item = @first_item
+    else
+      previous_item = get_item(index - 1)
+      current_item = previous_item.next_item
     end
 
-    if index + 1 < size
-      next_item = current_item.next_item # Will explode for index n
-    end
     new_item = LinkedListItem.new(payload)
+    next_item = current_item.next_item
+    new_item.next_item = next_item
 
     if index == 0
       @first_item = new_item
     else
       previous_item.next_item = new_item
     end
-
-    new_item.next_item = next_item
   end
 
   def last
