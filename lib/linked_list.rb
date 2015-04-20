@@ -24,6 +24,10 @@ class LinkedList
     end
   end
 
+  def [](index)
+    get(index)
+  end
+
   def last
     unless @last_item.nil?
       @last_item.payload
