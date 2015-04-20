@@ -23,10 +23,7 @@ class LinkedList
       current_node.payload
     end
   end
-
-  def [](index)
-    get(index)
-  end
+  alias [] get
 
   def last
     unless @last_item.nil?
