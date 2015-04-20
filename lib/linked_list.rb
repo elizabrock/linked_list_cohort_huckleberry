@@ -5,6 +5,9 @@ class LinkedList
 
   def initialize(*args)
     @size = 0
+    args.each do |payload|
+      push(payload)
+    end
   end
 
   def get(index)
