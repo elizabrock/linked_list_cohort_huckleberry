@@ -32,8 +32,14 @@ class LinkedList
   def []=(index, payload)
     if index > 0
       previous_item = get_item(index - 1) # Will explode for index 0
+      current_item = previous_item.next_item
+    else
+      current_item = @first_item
     end
-    next_item = get_item(index + 1) # Will explode for index n
+
+    if index + 1 < size
+      next_item = current_item.next_item # Will explode for index n
+    end
     new_item = LinkedListItem.new(payload)
 
     if index == 0
